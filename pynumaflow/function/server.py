@@ -142,10 +142,11 @@ class UserDefinedFunctionServicer(udfunction_pb2_grpc.UserDefinedFunctionService
 
         try:
             _LOGGER.info("type")
+            _LOGGER.error("error")
             print(type(request.keys))
             print("got a request to process")
             msgs = self.__map_handler(
-                request.keys,
+                list(request.keys),
                 Datum(
                     keys=list(request.keys),
                     value=request.value,
@@ -174,7 +175,7 @@ class UserDefinedFunctionServicer(udfunction_pb2_grpc.UserDefinedFunctionService
 
         try:
             msgts = self.__mapt_handler(
-                request.keys,
+                list(request.keys),
                 Datum(
                     keys=list(request.keys),
                     value=request.value,
