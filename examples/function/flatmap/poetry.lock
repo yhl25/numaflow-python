@@ -388,7 +388,7 @@ protobuf = ">=3.20,<5.0"
 type = "git"
 url = "https://github.com/yhl25/numaflow-python"
 reference = "testing"
-resolved_reference = "c39839e8c808349e10ba9638b395cd60a85c87fb"
+resolved_reference = "73ae87d095f6bf6561e19018d69cf2bd77796df0"
 
 [[package]]
 name = "requests"
