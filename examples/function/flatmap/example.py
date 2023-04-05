@@ -18,6 +18,6 @@ def my_handler(keys: List[str], datum: Datum) -> Messages:
 
 
 if __name__ == "__main__":
-    print("flat map udf was invoked")
+    print("Flat Map UDF was invoked")
     grpc_server = UserDefinedFunctionServicer(map_handler=my_handler)
     grpc_server.start()
