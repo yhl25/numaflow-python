@@ -386,9 +386,9 @@ protobuf = ">=3.20,<5.0"
 
 [package.source]
 type = "git"
-url = "https://github.com/yhl25/numaflow-python"
-reference = "testing"
-resolved_reference = "c39839e8c808349e10ba9638b395cd60a85c87fb"
+url = "https://github.com/numaproj/numaflow-python"
+reference = "main"
+resolved_reference = "acba1090060a6cffc0071d4d9ff8bb659b225eba"
 
 [[package]]
 name = "requests"
@@ -476,4 +476,4 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9, <3.11"
-content-hash = "e265bad685c7a2ffe9b9bd0e518adbf8d028f78c6560361be55a5c177444a082"
+content-hash = "e8ee2131556c8c85ee2feefe3c5f99bf97016f7ee40752f953321710425f91e2"

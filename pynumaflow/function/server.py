@@ -141,10 +141,12 @@ class UserDefinedFunctionServicer(udfunction_pb2_grpc.UserDefinedFunctionService
         """
 
         try:
+            print(type(request.keys))
+
             msgs = self.__map_handler(
                 request.keys,
                 Datum(
-                    keys=request.keys,
+                    keys=list(request.keys),
                     value=request.value,
                     event_time=request.event_time.event_time.ToDatetime(),
                     watermark=request.watermark.watermark.ToDatetime(),
