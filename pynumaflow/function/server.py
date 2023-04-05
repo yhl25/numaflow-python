@@ -139,7 +139,8 @@ class UserDefinedFunctionServicer(udfunction_pb2_grpc.UserDefinedFunctionService
         Applies a function to each datum element.
         The pascal case function name comes from the proto udfunction_pb2_grpc.py file.
         """
-
+        print("map fn invoked")
+        print(type(request.keys))
         try:
             _LOGGER.info("type")
             _LOGGER.error("error")
@@ -172,7 +173,7 @@ class UserDefinedFunctionServicer(udfunction_pb2_grpc.UserDefinedFunctionService
         Applies a function to each datum element.
         The pascal case function name comes from the generated udfunction_pb2_grpc.py file.
         """
-
+        print("map tfn")
         try:
             msgts = self.__mapt_handler(
                 list(request.keys),
