@@ -43,15 +43,15 @@ class Message:
         return cls(b"", [], [DROP])
 
     @property
-    def value(self):
+    def value(self) -> bytes:
         return self._value
 
     @property
-    def keys(self):
+    def keys(self) -> List[str]:
         return self._keys
 
     @property
-    def tags(self):
+    def tags(self) -> List[str]:
         return self._tags
 
 
@@ -119,19 +119,19 @@ class MessageT:
         return cls(b"", datetime(1, 1, 1, 0, 0), [], [DROP])
 
     @property
-    def event_time(self):
+    def event_time(self) -> datetime:
         return self._event_time
 
     @property
-    def keys(self):
+    def keys(self) -> List[str]:
         return self._keys
 
     @property
-    def value(self):
+    def value(self) -> bytes:
         return self._value
 
     @property
-    def tags(self):
+    def tags(self) -> List[str]:
         return self._tags
 
 

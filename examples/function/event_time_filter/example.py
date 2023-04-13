@@ -26,7 +26,6 @@ def my_handler(keys: List[str], datum: Datum) -> MessageTs:
         logging.info("Got event time:%s, it is before 2022, so dropping", event_time)
         messages.append(MessageT.to_drop())
     elif event_time < january_first_2023:
-        print("Got event time:%s, it is after year 2022, so forwarding to within_year_2022", event_time)
         logging.info(
             "Got event time:%s, it is within year 2022, so forwarding to within_year_2022",
             event_time,
@@ -35,7 +34,6 @@ def my_handler(keys: List[str], datum: Datum) -> MessageTs:
             MessageT(value=val, event_time=january_first_2022, keys=["within_year_2022"], tags=["within_year_2022"])
         )
     else:
-        print("Got event time:%s, it is after year 2022, so forwarding to after_year_2022", event_time)
         logging.info(
             "Got event time:%s, it is after year 2022, so forwarding to after_year_2022", event_time
         )
