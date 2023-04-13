@@ -1,39 +1,34 @@
 apiVersion: numaflow.numaproj.io/v1alpha1
 kind: Pipeline
 metadata:
-  name: local-kafka
+  name: local-pipeline
 spec:
   vertices:
-  - name: input
-    source:
-      kafka:
-        brokers:
-        - kafka-broker:9092
-        topic: input-topic
-        consumerGroup: test
-  - name: even-or-odd
-    udf:
-      container:
-        args:
-        - python
-        - example.py
-        image: docker.io/library/test-python-udf:v1
-  - name: even-sink
-    scale:
-      min: 1
-    sink:
-      # A simple log printing sink
-      log: {}
-  - name: odd-sink
-    scale:
-      min: 1
-    sink:
-      log: {}
-  - name: number-sink
-    scale:
-      min: 1
-    sink:
-      log: {}
+    - name: in
+      source:
+        http : {}
+    - name: even-or-odd
+      scale:
+        min: 1
+      udf:
+        container:
+          image: quay.io/yhl25/even-odd:v0.0.3
+    - name: even-sink
+      scale:
+        min: 1
+      sink:
+        # A simple log printing sink
+        log: {}
+    - name: odd-sink
+      scale:
+        min: 1
+      sink:
+        log: {}
+    - name: number-sink
+      scale:
+        min: 1
+      sink:
+        log: {}
   edges:
     - from: in
       to: even-or-odd
@@ -54,7 +49,7 @@ spec:
       to: number-sink
       conditions:
         tags:
-          operator: or
+          operator: and
           values:
             - even-tag
             - odd-tag

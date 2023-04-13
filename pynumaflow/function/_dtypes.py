@@ -40,7 +40,7 @@ class Message:
     # returns the Message Object which will be dropped
     @classmethod
     def to_drop(cls: Type[MT]) -> MT:
-        return cls(b"", None, [DROP])
+        return cls(b"", [], [DROP])
 
     @property
     def value(self):
@@ -111,12 +111,12 @@ class MessageT:
         """
         self._tags = tags or []
         self._keys = keys or []
-        self._event_time = event_time
+        self._event_time = event_time or datetime(1, 1, 1, 0, 0)
         self._value = value or b""
 
     @classmethod
     def to_drop(cls: Type[MT]) -> MT:
-        return cls(b"", None, None, [DROP])
+        return cls(b"", datetime(1, 1, 1, 0, 0), [], [DROP])
 
     @property
     def event_time(self):

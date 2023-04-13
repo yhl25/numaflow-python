@@ -5,8 +5,8 @@ description = ""
 authors = ["Numaflow developers"]
 
 [tool.poetry.dependencies]
-python = "~3.10"
-pynumaflow = "~0.3.2"
+python = ">=3.8, <3.11"
+pynumaflow = {git = "https://github.com/numaproj/numaflow-python", rev = "main"}
 
 [tool.poetry.dev-dependencies]
 
