@@ -203,8 +203,12 @@ class UserDefinedFunctionServicer(udfunction_pb2_grpc.UserDefinedFunctionService
 
         datums = []
         for msgt in msgts.items():
+            print("event time - ")
+            print(msgt.event_time)
             event_time_timestamp = _timestamp_pb2.Timestamp()
             event_time_timestamp.FromDatetime(dt=msgt.event_time)
+            print("timestamp - ")
+            print(event_time_timestamp)
             watermark_timestamp = _timestamp_pb2.Timestamp()
             watermark_timestamp.FromDatetime(dt=request.watermark.watermark.ToDatetime())
             datums.append(

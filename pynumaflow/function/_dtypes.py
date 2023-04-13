@@ -103,7 +103,7 @@ class MessageT:
     _tags: List[str]
     _value: bytes = b""
     # There is no year 0, so setting following as default event time.
-    _event_time: datetime = datetime(1, 1, 1, 0, 0)
+    _event_time: datetime = datetime.fromtimestamp(0)
 
     def __init__(self, value: bytes, event_time: datetime, keys=None, tags=None):
         """
@@ -111,7 +111,7 @@ class MessageT:
         """
         self._tags = tags or []
         self._keys = keys or []
-        self._event_time = event_time or datetime(1, 1, 1, 0, 0)
+        self._event_time = event_time or datetime.fromtimestamp(0)
         self._value = value or b""
 
     @classmethod
